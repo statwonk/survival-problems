@@ -29,7 +29,7 @@ read_csv("cloudera/churn.all", col_names = c(
   "churned"
 )) %>%
   tbl_df %>%
-  mutate(censor = churned == "False.") %>%
+  mutate(censor = churned == "True.") %>%
   survfit(Surv(`account length`, censor) ~ 1, data = .) %T>%
   # too smooth to be real subscription data
   plot(mark.time = F) %>%

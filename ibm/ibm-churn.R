@@ -7,7 +7,7 @@ library(magrittr)
 
 read_csv("ibm/WA_Fn-UseC_-Telco-Customer-Churn.csv") %>%
   tbl_df %>%
-  mutate(censor = Churn == "No") %>%
+  mutate(censor = Churn == "Yes") %>%
   survfit(Surv(tenure, censor) ~ 1, data = .) %T>%
   # too smooth to be real subscription data
   plot(mark.time = F) %>%
